@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nooria Rana – Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+      animation: slideDown 0.9s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-70px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* LOGO */
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #ff4081, #ff6600);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
+    }
+
+    .logo-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff4081;
+      letter-spacing: 1px;
+    }
+
+    /* NAV */
+    .nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 3px;
+      transition: 0.3s;
+    }
+
+    .nav a::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background: #ff4081;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      color: #ff4081;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================================== */
+
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px;
+      padding-top: 140px; /* Header space fix */
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .hero-text {
+      max-width: 40%;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.3;
+      background: rgba(255,255,255,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      animation: slideText 1.5s ease;
+    }
+
+    @keyframes slideText {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .hero img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+      animation: popIn 1.5s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ABOUT */
+    .about {
+      display: flex;
+      gap: 40px;
+      padding: 60px;
+      align-items: center;
+      background: #f9f9ff;
+    }
+
+    .about img {
+      width: 300px;
+      border-radius: 15px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      padding: 60px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .project-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card .info {
+      padding: 20px;
+    }
+
+    /* PERSONAL DETAILS SECTION */
+    .details {
+      padding: 60px;
+      background: #fff0f8;
+    }
+
+    .details h2 {
+      margin-bottom: 20px;
+    }
+
+    .detail-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .detail-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .detail-card h3 {
+      color: #ff4081;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #ff69b4;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ⭐ HEADER ADDED ⭐ -->
+  <header>
+    <div class="logo-box">
+      <div class="logo-circle">N</div>
+      <span class="logo-name">Nooria Rana</span>
+    </div>
+
+    <div class="nav">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#details">Details</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      Hi, I’m <span style="color:#ff6600;">Nooria Rana</span>.<br>
+      A Frontend Developer & UI/UX Designer.<br>
+      I create bright, bold, and modern designs.
+    </div>
+
+    <img src="https://i.imgur.com/3ZQ3Z4B.png" alt="Profile Photo" />
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" />
+
+    <div>
+      <h2>About Me</h2>
+      <p>
+        I am a passionate web designer and developer who loves working with 
+        bright colors, animations, and modern layouts. My journey in coding 
+        started with curiosity about how websites work, and now I specialize in 
+        creating interactive, high-performance web interfaces.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" />
+        <div class="info">
+          <h3>Bright Portfolio Website</h3>
+          <p>A neon + bright Lando Norris-inspired portfolio.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9" />
+        <div class="info">
+          <h3>UI Components Library</h3>
+          <p>Animated buttons, glowing cards, neon UI.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c" />
+        <div class="info">
+          <h3>Interactive Resume Builder</h3>
+          <p>Drag & drop resume builder with smooth animations.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PERSONAL DETAILS -->
+  <section class="details" id="details">
+    <h2>Personal Details</h2>
+
+    <div class="detail-box">
+
+      <div class="detail-card">
+        <h3>Skills</h3>
+        <p>HTML, CSS, JavaScript, TailwindCSS, UI/UX Design, Figma, Responsive Design, Animations</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Education</h3>
+        <p>BS Information Technology (Ongoing)<br>Punjab University<br>2023-27</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Contact</h3>
+        <p>Email: rananooreen@gmail.com<br>Phone: +92 3063790850</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Location</h3>
+        <p>Sahiwal, Pakistan</p>
+      </div>
+
+      <div class="detail-card">
+        <h3>Social Accounts</h3>
+        <p>
+          Instagram: @nooriarana<br>
+          GitHub: github.com/nooria<br>
+          LinkedIn: linkedin.com/in/nooria-rana
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    &copy; 2025 Nooria Rana | 
+    <a href="#">GitHub</a> | 
+    <a href="#">LinkedIn</a> | 
+    <a href="mailto:rananooreenmail@example.com">Email</a>
+  </footer>
+
+</body>
+</html>
